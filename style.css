@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Lato:ital@1&family=Nunito&family=Poppins:wght@500;600;700&family=Press+Start+2P&family=Rubik:ital,wght@0,500;1,400&family=Zeyada&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "DM Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+.nav {
+  background-color: #aac4ff79;
+  height: 5rem;
+  font-size: 1.6rem;
+  padding: 2rem;
+  height: 85vh;
+}
+.main {
+  background-color: #fff;
+  height: 85vh;
+}
+.footer {
+  background-color: #0000002c;
+  font-size: 2rem;
+}
+.logo {
+  width: 16rem;
+  height: 6rem;
+  object-fit: contain;
+  filter: drop-shadow(1.6rem 1.6rem 2rem #aac4ff79) invert(100%);
+}
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 /52 / 62 / 74 / 86 / 98
+*/
+

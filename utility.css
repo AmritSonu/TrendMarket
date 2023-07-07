@@ -1,0 +1,31 @@
+.flex {
+  display: flex;
+}
+.space-between {
+  justify-content: space-between;
+}
+.space-evenly {
+  justify-content: space-evenly;
+}
+.flex-g1 {
+  flex-grow: 1;
+}
+.flex-g2 {
+  flex-grow: 2;
+}
+
+.flex-g3 {
+  flex-grow: 3;
+}
+.flex-g4 {
+  flex-grow: 4;
+}
+
+/* text center */
+.textcenter {
+  text-align: center;
+}
+/*  */
+.g-2 {
+  gap: 2rem;
+}
