@@ -1,0 +1,17 @@
+.nav {
+  background-color: #ebffaa4e;
+  height: 5rem;
+  font-size: 1.6rem;
+  padding: 2rem;
+  height: 85vh;
+}
+ul li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+ul li:not(:last-child) {
+  margin-bottom: 4rem;
+}

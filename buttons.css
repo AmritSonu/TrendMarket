@@ -1,0 +1,48 @@
+.addTocart {
+  position: relative;
+  font-size: 1.0625rem; /* 17px / 16px = 1.0625rem */
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.625rem 1.5625rem; /* 1em = 10px, 1em = 1rem */
+  display: inline-block;
+  border-radius: 3.125rem; /* 50px / 16px = 3.125rem */
+  transition: all 0.3s;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  color: white;
+  background-color: #3498db;
+  cursor: pointer;
+}
+
+.addTocart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 4px / 16px = 0.25rem, 8px / 16px = 0.5rem */
+}
+
+.addTocart:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+.addTocart::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 3.125rem; /* 50px / 16px = 3.125rem */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.addTocart::after {
+  background-color: #2980b9;
+}
+
+.addTocart:hover::after {
+  transform: scaleX(1.2) scaleY(1.4);
+  opacity: 0;
+}

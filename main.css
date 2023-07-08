@@ -1,0 +1,8 @@
+main {
+  overflow: scroll;
+}
+.product-img {
+  width: 24rem;
+  height: 24rem;
+  object-fit: contain;
+}
