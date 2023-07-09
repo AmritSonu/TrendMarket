@@ -6,3 +6,13 @@ main {
   height: 24rem;
   object-fit: contain;
 }
+.slide_img {
+  width: 100rem;
+  height: 25rem;
+  object-fit: cover;
+}
+.img_container {
+  display: flex;
+  gap: 15rem;
+  overflow-x: scroll;
+}
