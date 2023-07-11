@@ -16,3 +16,16 @@ main {
   gap: 15rem;
   overflow-x: scroll;
 }
+/* .wishlist {
+} */
+.wishlist_count {
+  z-index: 2;
+  font-size: 1.4rem;
+  position: absolute;
+  right: -10%;
+  bottom: 10%;
+  background-color: #000000bc;
+  color: #fff;
+  border-radius: 10rem;
+  padding: 0 0.8rem;
+}
