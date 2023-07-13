@@ -56,7 +56,7 @@ function renderProducts(products) {
     itemBox.innerHTML = products
       .map(
         (data) => `
-         <div class="flex flex-col g-2 ph-1" style="width: 25rem">
+         <div class="flex flex-col g-2 ph-1" style="width: 25rem" data-product-cart>
            <img
             class="product-img"
             src="${data.image}"
@@ -85,6 +85,12 @@ function renderProducts(products) {
       )
       .join("");
     WishList();
+    // Wait for the next event loop iteration before accessing the productCart element
+    setTimeout(() => {
+      const productCart = document.querySelector("[data-product-cart]");
+      console.log(productCart.innerHTML);
+      // You can now use the productCart element and its value as needed
+    }, 0);
   } else {
     console.log("No products found.");
   }
@@ -143,12 +149,23 @@ function handleAddToFav(addToFav, countFav, wishlist_count) {
         eachFav.style.fill = "none";
         countFav -= 1;
       }
-
       // add counting of favourite item inside wishlist
       wishlist_count.textContent = countFav;
     });
   });
 }
+//  toggle wishlist button when click on it.
+function handleWishlistPage() {
+  const wishlistIcon = document.querySelector("#wishlist_icon");
+  const wishlistBox = document.querySelector(".wishlist");
+
+  wishlistIcon.addEventListener("click", () => {
+    console.log("clicked!");
+    wishlistBox.classList.toggle("disNone");
+  });
+}
+handleWishlistPage();
+
 // Entry point
 function initialize() {
   attachEventListeners();
