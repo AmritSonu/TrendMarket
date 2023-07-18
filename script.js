@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 // Fetches products from the API
 async function fetchProducts() {
   try {
@@ -88,12 +88,14 @@ function renderProducts(products) {
     // Wait for the next event loop iteration before accessing the productCart element
     setTimeout(() => {
       const productCart = document.querySelector("[data-product-cart]");
-      console.log(productCart.innerHTML);
+
+      // console.log(productCart.innerHTML);
       // You can now use the productCart element and its value as needed
     }, 0);
   } else {
     console.log("No products found.");
   }
+  console.log(products);
 }
 
 // Event handler for category click
@@ -129,10 +131,12 @@ function attachEventListeners() {
 function WishList() {
   const addToFav = document.querySelectorAll("#addToFav");
   let wishlist_count = document.querySelector(".wishlist_count");
-  let countFav = 0;
+  var countFav = 0;
   // handle counting items...
   handleAddToFav(addToFav, countFav, wishlist_count);
 }
+const wishlistItems = [];
+
 // Add item to Wishlist
 function handleAddToFav(addToFav, countFav, wishlist_count) {
   addToFav.forEach((eachFav) => {
@@ -141,31 +145,101 @@ function handleAddToFav(addToFav, countFav, wishlist_count) {
       const computedStyle = window.getComputedStyle(eachFav);
       const fillStyle = computedStyle.getPropertyValue("fill");
 
-      // check item is Select or not
       if (fillStyle === "none") {
         eachFav.style.fill = "red";
         countFav += 1;
+
+        // Get the parent element of the like icon
+        const productElement = eachFav.closest("[data-product-cart]");
+        // Extract the relevant data from the product element
+        const image = productElement.querySelector(".product-img").src;
+        const title = productElement.querySelector("h2").textContent;
+        const price = productElement.querySelector("span").textContent;
+        const rating = productElement.querySelector("p").textContent;
+
+        // Create a new wishlist item object
+        const wishlistItem = {
+          image,
+          title,
+          price,
+          rating,
+          category: "Favourite", // Add the category property
+        };
+
+        // Add the wishlist item to the array
+        wishlistItems.push(wishlistItem);
+
+        // Display the wishlist items
+        displayWishlistItems(countFav, wishlist_count);
       } else {
         eachFav.style.fill = "none";
         countFav -= 1;
       }
-      // add counting of favourite item inside wishlist
-      wishlist_count.textContent = countFav;
+
+      wishlist_count.textContent = wishlistItems.length;
     });
   });
 }
+function displayWishlistItems(countFav, wishlist_count) {
+  const wishlistInner = document.querySelector(".wishlist_inner");
+
+  wishlistInner.innerHTML = ""; // Clear existing content
+
+  wishlistItems.forEach((eachFavItem) => {
+    if (eachFavItem.category === "Favourite") {
+      wishlistInner.innerHTML += `
+          <div class="flex space-between align-center p-1 favBox">
+          <div>
+          <img class="favourite_img" src="${eachFavItem.image}">
+          <h2 class="fav_heading">${eachFavItem.title}</h2>
+          </div>
+          <div class="flex space-evenly g-2">
+          <button class="addTocart" style="font-size:1rem">Add to cart</button>
+          <svg class="deleteItemFav" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+          </div>
+          </div>
+        `;
+    }
+  });
+  deleteItemFav(countFav, wishlist_count);
+  console.log("Wishlist Items:", wishlistItems);
+}
+
+function deleteItemFav(countFav, wishlist_count) {
+  const deleteItemFavButtons = document.querySelectorAll(".deleteItemFav");
+
+  deleteItemFavButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const currentItemBox = button.closest(".favBox");
+      const index = Array.from(currentItemBox.parentNode.children).indexOf(
+        currentItemBox
+      );
+
+      currentItemBox.remove();
+      wishlistItems.splice(index, 1);
+      wishlist_count.textContent = wishlistItems.length;
+      console.log(wishlistItems.length);
+    });
+  });
+}
+
 //  toggle wishlist button when click on it.
 function handleWishlistPage() {
   const wishlistIcon = document.querySelector("#wishlist_icon");
   const wishlistBox = document.querySelector(".wishlist");
-
   wishlistIcon.addEventListener("click", () => {
-    console.log("clicked!");
     wishlistBox.classList.toggle("disNone");
+    // Display the wishlist items
+    // displayWishlistItems();
   });
 }
+
 handleWishlistPage();
 
+// get data from object current selected and move it to wishlist......
+// function MoveItemsToWishlist() {}
 // Entry point
 function initialize() {
   attachEventListeners();

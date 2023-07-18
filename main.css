@@ -24,9 +24,12 @@ main {
   box-shadow: 0 0 0.6rem #0000007f;
   width: 50vw;
   height: 80vh;
+  z-index: 10;
+  overflow-y: scroll;
 }
 .disNone {
   display: none;
+  z-index: 10;
 }
 .wishlist_count {
   z-index: 2;
@@ -38,4 +41,22 @@ main {
   color: #fff;
   border-radius: 10rem;
   padding: 0 0.8rem;
+}
+.favourite_img {
+  width: 8rem;
+  height: 5rem;
+  object-fit: contain;
+}
+.favBox {
+  padding: 0.3rem;
+  background: #8dff585c;
+  border: 0.1rem solid #000;
+  padding: 1rem;
+}
+.fav_heading {
+  font-size: 1.2rem;
+}
+.deleteItemFav {
+  width: 3rem;
+  height: auto;
 }
