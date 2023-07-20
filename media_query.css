@@ -1,0 +1,59 @@
+@media screen and (max-width: 1600px) {
+  .ul-adj {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 4rem;
+    margin-top: 4rem;
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 864px) {
+  html {
+    font-size: 55.52%;
+  }
+  .ul-adj {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  html {
+    font-size: 51.52%;
+  }
+}
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 48%;
+  }
+  .toggle_bar {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+  .style-side {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 7rem;
+    right: 0;
+    display: block;
+    text-align: center;
+    padding: 3rem;
+    box-shadow: 0 0 0.6rem #0000002f;
+  }
+  .hide {
+    transform: translateX(20rem);
+  }
+  .wishlist {
+    top: 4rem;
+    right: 10.8rem;
+    height: 50vh;
+  }
+  .ul-adj {
+    display: block;
+  }
+}
